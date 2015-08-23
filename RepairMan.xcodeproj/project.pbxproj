@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18BBFE451B897BFC00A4BFF6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */; };
 		18BBFE471B89890E00A4BFF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */; };
+		18BBFE491B89992D00A4BFF6 /* RequestRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */; };
 		75FB14311B80816900752353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14301B80816900752353 /* AppDelegate.swift */; };
 		75FB14361B80816900752353 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75FB14341B80816900752353 /* Main.storyboard */; };
 		75FB14381B80816900752353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FB14371B80816900752353 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		18BBFE401B897B4E00A4BFF6 /* RepairMan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RepairMan-Bridging-Header.h"; sourceTree = "<group>"; };
 		18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRepairViewController.swift; sourceTree = "<group>"; };
 		75FB142D1B80816900752353 /* RepairMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepairMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FB14301B80816900752353 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75FB14351B80816900752353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				75FB14301B80816900752353 /* AppDelegate.swift */,
 				18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */,
 				18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */,
+				18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */,
 				75FB14341B80816900752353 /* Main.storyboard */,
 				75FB14371B80816900752353 /* Assets.xcassets */,
 				75FB14391B80816900752353 /* LaunchScreen.storyboard */,
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BBFE471B89890E00A4BFF6 /* LoginViewController.swift in Sources */,
+				18BBFE491B89992D00A4BFF6 /* RequestRepairViewController.swift in Sources */,
 				75FB14311B80816900752353 /* AppDelegate.swift in Sources */,
 				18BBFE451B897BFC00A4BFF6 /* LaunchViewController.swift in Sources */,
 			);

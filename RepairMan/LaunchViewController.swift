@@ -84,6 +84,8 @@ extension LaunchViewController : LoginViewControllerDelegate {
         let name = info["name"]
         let deparment = info["department"]
         let phoneNumber = info["phoneNumber"]
+        
+        let requestRepairVC = RequestRepairViewController(name: name, department: deparment, phoneNumber: phoneNumber)
     }
 }
 
