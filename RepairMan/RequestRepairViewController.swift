@@ -16,7 +16,7 @@ class RequestRepairViewController: UIViewController {
     
     var tableView: UITableView?
     
-    convenience init(name: String, department: String, phoneNumber: String) {
+    convenience init(name: String!, department: String!, phoneNumber: String!) {
         self.init()
         currentName = name
         currentDepartment = department
@@ -25,7 +25,7 @@ class RequestRepairViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 

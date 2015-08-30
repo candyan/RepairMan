@@ -42,7 +42,7 @@ extension LaunchViewController {
         leftOperationButton = UIButton.launchButton("我要报修", color: UIColor(hex: 0x31CCAA))
         self.view.addSubview(leftOperationButton!)
         leftOperationButton!.mas_makeConstraints { (maker) -> Void in
-            maker.bottom.equalTo()(self.view).offset()(30)
+            maker.bottom.equalTo()(self.view).offset()(-30)
             maker.height.mas_equalTo()(44)
             maker.leading.equalTo()(self.view).offset()(30)
         }
@@ -55,7 +55,7 @@ extension LaunchViewController {
             maker.leading.equalTo()(self.leftOperationButton!.mas_trailing).offset()(10)
             maker.trailing.equalTo()(self.view).offset()(-30)
             maker.width.equalTo()(self.leftOperationButton!)
-            maker.bottom.equalTo()(self.view).offset()(30)
+            maker.bottom.equalTo()(self.view).offset()(-30)
             maker.height.mas_equalTo()(44)
         }
         rightOperationButton?.addTarget(self, action: "rightOperationButtonTouchUpInsideHandler:", forControlEvents: .TouchUpInside)
@@ -81,9 +81,9 @@ extension LaunchViewController : LoginViewControllerDelegate {
     func loginViewController(loginVC: LoginViewController, didFinishLoginWithInfo info: [String : AnyObject!]) {
         loginVC.dismissViewControllerAnimated(false, completion: nil)
         
-        let name = info["name"]
-        let deparment = info["department"]
-        let phoneNumber = info["phoneNumber"]
+        let name: String = info["name"] as! String
+        let deparment: String = info["department"] as! String
+        let phoneNumber: String = info["phoneNumber"] as! String
         
         let requestRepairVC = RequestRepairViewController(name: name, department: deparment, phoneNumber: phoneNumber)
     }

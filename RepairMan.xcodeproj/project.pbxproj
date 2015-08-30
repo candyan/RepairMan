@@ -11,23 +11,13 @@
 		18BBFE471B89890E00A4BFF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */; };
 		18BBFE491B89992D00A4BFF6 /* RequestRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */; };
 		75FB14311B80816900752353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14301B80816900752353 /* AppDelegate.swift */; };
-		75FB14361B80816900752353 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75FB14341B80816900752353 /* Main.storyboard */; };
 		75FB14381B80816900752353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FB14371B80816900752353 /* Assets.xcassets */; };
-		75FB143B1B80816900752353 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75FB14391B80816900752353 /* LaunchScreen.storyboard */; };
 		75FB14461B80816900752353 /* RepairManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14451B80816900752353 /* RepairManTests.swift */; };
-		75FB14511B80816A00752353 /* RepairManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14501B80816A00752353 /* RepairManUITests.swift */; };
 		BEDFA1687E0E65118608409C /* libPods-RepairMan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDF9CEA5CAF4DC6CB32C13F /* libPods-RepairMan.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		75FB14421B80816900752353 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75FB14251B80816900752353 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 75FB142C1B80816900752353;
-			remoteInfo = RepairMan;
-		};
-		75FB144D1B80816A00752353 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75FB14251B80816900752353 /* Project object */;
 			proxyType = 1;
@@ -43,14 +33,12 @@
 		18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRepairViewController.swift; sourceTree = "<group>"; };
 		75FB142D1B80816900752353 /* RepairMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepairMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FB14301B80816900752353 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		75FB14351B80816900752353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75FB14371B80816900752353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75FB143A1B80816900752353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75FB143C1B80816900752353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75FB14411B80816900752353 /* RepairManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepairManTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FB14451B80816900752353 /* RepairManTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairManTests.swift; sourceTree = "<group>"; };
 		75FB14471B80816A00752353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75FB144C1B80816A00752353 /* RepairManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepairManUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FB14501B80816A00752353 /* RepairManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairManUITests.swift; sourceTree = "<group>"; };
 		75FB14521B80816A00752353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7945A48A93DDEEB4BDCD7601 /* Pods-RepairMan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepairMan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepairMan/Pods-RepairMan.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,13 +56,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		75FB143E1B80816900752353 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75FB14491B80816A00752353 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -118,7 +99,6 @@
 			children = (
 				75FB142D1B80816900752353 /* RepairMan.app */,
 				75FB14411B80816900752353 /* RepairManTests.xctest */,
-				75FB144C1B80816A00752353 /* RepairManUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,7 +110,6 @@
 				18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */,
 				18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */,
 				18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */,
-				75FB14341B80816900752353 /* Main.storyboard */,
 				75FB14371B80816900752353 /* Assets.xcassets */,
 				75FB14391B80816900752353 /* LaunchScreen.storyboard */,
 				75FB143C1B80816900752353 /* Info.plist */,
@@ -197,24 +176,6 @@
 			productReference = 75FB14411B80816900752353 /* RepairManTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		75FB144B1B80816A00752353 /* RepairManUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 75FB145B1B80816A00752353 /* Build configuration list for PBXNativeTarget "RepairManUITests" */;
-			buildPhases = (
-				75FB14481B80816A00752353 /* Sources */,
-				75FB14491B80816A00752353 /* Frameworks */,
-				75FB144A1B80816A00752353 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				75FB144E1B80816A00752353 /* PBXTargetDependency */,
-			);
-			name = RepairManUITests;
-			productName = RepairManUITests;
-			productReference = 75FB144C1B80816A00752353 /* RepairManUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,10 +189,6 @@
 						CreatedOnToolsVersion = 7.0;
 					};
 					75FB14401B80816900752353 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 75FB142C1B80816900752353;
-					};
-					75FB144B1B80816A00752353 = {
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 75FB142C1B80816900752353;
 					};
@@ -252,7 +209,6 @@
 			targets = (
 				75FB142C1B80816900752353 /* RepairMan */,
 				75FB14401B80816900752353 /* RepairManTests */,
-				75FB144B1B80816A00752353 /* RepairManUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -262,20 +218,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75FB143B1B80816900752353 /* LaunchScreen.storyboard in Resources */,
 				75FB14381B80816900752353 /* Assets.xcassets in Resources */,
-				75FB14361B80816900752353 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		75FB143F1B80816900752353 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75FB144A1B80816A00752353 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,14 +284,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75FB14481B80816A00752353 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				75FB14511B80816A00752353 /* RepairManUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -353,22 +292,9 @@
 			target = 75FB142C1B80816900752353 /* RepairMan */;
 			targetProxy = 75FB14421B80816900752353 /* PBXContainerItemProxy */;
 		};
-		75FB144E1B80816A00752353 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 75FB142C1B80816900752353 /* RepairMan */;
-			targetProxy = 75FB144D1B80816A00752353 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		75FB14341B80816900752353 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75FB14351B80816900752353 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		75FB14391B80816900752353 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -467,7 +393,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RepairMan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ABRS.RepairMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,7 +410,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RepairMan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ABRS.RepairMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,30 +444,6 @@
 			};
 			name = Release;
 		};
-		75FB145C1B80816A00752353 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = RepairManUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ABRS.RepairManUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = RepairMan;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		75FB145D1B80816A00752353 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = RepairManUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ABRS.RepairManUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = RepairMan;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -564,15 +470,6 @@
 			buildConfigurations = (
 				75FB14591B80816A00752353 /* Debug */,
 				75FB145A1B80816A00752353 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		75FB145B1B80816A00752353 /* Build configuration list for PBXNativeTarget "RepairManUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				75FB145C1B80816A00752353 /* Debug */,
-				75FB145D1B80816A00752353 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

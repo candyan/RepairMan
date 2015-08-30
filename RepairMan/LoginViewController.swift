@@ -24,6 +24,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.edgesForExtendedLayout = UIRectEdge.None
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        self.title = "登录"
         
         self.loadSubviews()
     }
@@ -78,7 +82,7 @@ extension LoginViewController {
         nextButton!.mas_makeConstraints { (maker) -> Void in
             maker.width.equalTo()(150)
             maker.height.equalTo()(44)
-            maker.top.equalTo()(self.phoneNumberTextField!.mas_bottom).offset()(10);
+            maker.top.equalTo()(self.phoneNumberTextField!.mas_bottom).offset()(20);
             maker.centerX.equalTo()(self.view)
         }
         
