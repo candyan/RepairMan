@@ -10,6 +10,8 @@
 		18BBFE451B897BFC00A4BFF6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */; };
 		18BBFE471B89890E00A4BFF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */; };
 		18BBFE491B89992D00A4BFF6 /* RequestRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */; };
+		18BFBEE31B92E533004CE9DE /* ABRSProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFBEE21B92E533004CE9DE /* ABRSProfileHeader.swift */; };
+		18BFBEE51B92ED87004CE9DE /* PublishRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFBEE41B92ED87004CE9DE /* PublishRepairViewController.swift */; };
 		75FB14311B80816900752353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14301B80816900752353 /* AppDelegate.swift */; };
 		75FB14381B80816900752353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FB14371B80816900752353 /* Assets.xcassets */; };
 		75FB14461B80816900752353 /* RepairManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14451B80816900752353 /* RepairManTests.swift */; };
@@ -31,6 +33,8 @@
 		18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRepairViewController.swift; sourceTree = "<group>"; };
+		18BFBEE21B92E533004CE9DE /* ABRSProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABRSProfileHeader.swift; sourceTree = "<group>"; };
+		18BFBEE41B92ED87004CE9DE /* PublishRepairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishRepairViewController.swift; sourceTree = "<group>"; };
 		75FB142D1B80816900752353 /* RepairMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepairMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FB14301B80816900752353 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75FB14371B80816900752353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,9 +111,11 @@
 			isa = PBXGroup;
 			children = (
 				75FB14301B80816900752353 /* AppDelegate.swift */,
+				18BFBEE21B92E533004CE9DE /* ABRSProfileHeader.swift */,
 				18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */,
 				18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */,
 				18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */,
+				18BFBEE41B92ED87004CE9DE /* PublishRepairViewController.swift */,
 				75FB14371B80816900752353 /* Assets.xcassets */,
 				75FB14391B80816900752353 /* LaunchScreen.storyboard */,
 				75FB143C1B80816900752353 /* Info.plist */,
@@ -271,6 +277,8 @@
 			files = (
 				18BBFE471B89890E00A4BFF6 /* LoginViewController.swift in Sources */,
 				18BBFE491B89992D00A4BFF6 /* RequestRepairViewController.swift in Sources */,
+				18BFBEE31B92E533004CE9DE /* ABRSProfileHeader.swift in Sources */,
+				18BFBEE51B92ED87004CE9DE /* PublishRepairViewController.swift in Sources */,
 				75FB14311B80816900752353 /* AppDelegate.swift in Sources */,
 				18BBFE451B897BFC00A4BFF6 /* LaunchViewController.swift in Sources */,
 			);

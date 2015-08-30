@@ -80,12 +80,6 @@ extension LaunchViewController {
 extension LaunchViewController : LoginViewControllerDelegate {
     func loginViewController(loginVC: LoginViewController, didFinishLoginWithInfo info: [String : AnyObject!]) {
         loginVC.dismissViewControllerAnimated(false, completion: nil)
-        
-        let name: String = info["name"] as! String
-        let deparment: String = info["department"] as! String
-        let phoneNumber: String = info["phoneNumber"] as! String
-        
-        let requestRepairVC = RequestRepairViewController(name: name, department: deparment, phoneNumber: phoneNumber)
     }
 }
 

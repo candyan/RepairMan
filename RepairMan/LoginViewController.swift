@@ -17,8 +17,7 @@ class LoginViewController: UIViewController {
     weak var delegate: LoginViewControllerDelegate?
     var nextButton: UIButton?
     var nameTextField: UITextField?
-    var departmentTextField: UITextField?
-    var phoneNumberTextField: UITextField?
+    var passwordTextField: UITextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +41,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     internal func loadSubviews() {
-        nameTextField = UITextField.loginTextField("姓名")
+        nameTextField = UITextField.loginTextField("手机号")
         self.view.addSubview(nameTextField!)
         nameTextField!.delegate = self
         
@@ -53,28 +52,16 @@ extension LoginViewController {
             maker.top.equalTo()(self.view).offset()(40)
         })
         
-        departmentTextField = UITextField.loginTextField("部门")
-        self.view.addSubview(departmentTextField!)
-        departmentTextField!.delegate = self
+        passwordTextField = UITextField.loginTextField("密码")
+        self.view.addSubview(passwordTextField!)
+        passwordTextField!.delegate = self
         
-        departmentTextField!.mas_makeConstraints { (maker) -> Void in
+        passwordTextField!.mas_makeConstraints { (maker) -> Void in
             maker.width.equalTo()(self.nameTextField!)
             maker.centerX.equalTo()(self.nameTextField!)
             maker.height.equalTo()(self.nameTextField!)
             maker.top.equalTo()(self.nameTextField!.mas_bottom)
         }
-        
-        phoneNumberTextField = UITextField.loginTextField("手机号")
-        self.view.addSubview(phoneNumberTextField!)
-        phoneNumberTextField!.delegate = self
-        
-        phoneNumberTextField!.mas_makeConstraints { (maker) -> Void in
-            maker.width.equalTo()(self.nameTextField!)
-            maker.centerX.equalTo()(self.nameTextField!)
-            maker.height.equalTo()(self.nameTextField!)
-            maker.top.equalTo()(self.departmentTextField!.mas_bottom)
-        }
-        phoneNumberTextField?.keyboardType = .PhonePad
         
         nextButton = UIButton(frame: CGRectZero)
         self.view.addSubview(nextButton!)
@@ -82,13 +69,13 @@ extension LoginViewController {
         nextButton!.mas_makeConstraints { (maker) -> Void in
             maker.width.equalTo()(150)
             maker.height.equalTo()(44)
-            maker.top.equalTo()(self.phoneNumberTextField!.mas_bottom).offset()(20);
+            maker.top.equalTo()(self.passwordTextField!.mas_bottom).offset()(20);
             maker.centerX.equalTo()(self.view)
         }
         
         nextButton!.layer.cornerRadius = 22
         nextButton!.backgroundColor = UIColor(hex: 0x4A90E2)
-        nextButton!.setTitle("下一步", forState: .Normal)
+        nextButton!.setTitle("登录", forState: .Normal)
         nextButton!.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
         nextButton!.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         nextButton!.addTarget(self, action: "nextButtonTouchUpInsideHandler:", forControlEvents: .TouchUpInside)
@@ -105,13 +92,17 @@ extension LoginViewController : UITextFieldDelegate {
 
 extension LoginViewController {
     internal func nextButtonTouchUpInsideHandler(sender: UIButton?) {
+        weak var weakSelf = self
         if self.nameTextField?.text.isEmpty == false &&
-           self.departmentTextField?.text.isEmpty == false &&
-            self.phoneNumberTextField?.text.isEmpty == false {
-                let info: [String: AnyObject!] = ["name": self.nameTextField?.text,
-                    "department": self.departmentTextField?.text,
-                    "phoneNumber": self.phoneNumberTextField?.text]
-                self.delegate?.loginViewController?(self, didFinishLoginWithInfo: info)
+           self.passwordTextField?.text.isEmpty == false {
+            AVUser.logInWithMobilePhoneNumberInBackground(self.nameTextField?.text, password: self.passwordTextField?.text, block: { (user, error) -> Void in
+                if error == nil && user != nil {
+                    AVUser.changeCurrentUser(user, save: true)
+                    weakSelf?.delegate?.loginViewController!(weakSelf!, didFinishLoginWithInfo: ["LoginUser": user])
+                } else {
+                    
+                }
+            })
         }
     }
 }

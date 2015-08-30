@@ -28,13 +28,14 @@ extension AppDelegate {
         self.setupLeanCloud()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window!.rootViewController = LaunchViewController(nibName: nil, bundle: nil)
-        self.window!.makeKeyAndVisible()
         
-        AVUser.logInWithUsernameInBackground("陈悦", password: "123") { (user, error) -> Void in
-            user["department"] = 1
-            user["role"] = ABRSUserRole.normal
+        if AVUser.currentUser() == nil {
+            self.window!.rootViewController = LaunchViewController(nibName: nil, bundle: nil)
+        } else {
+            self.window!.rootViewController = UINavigationController(rootViewController: RequestRepairViewController())
         }
+        
+        self.window!.makeKeyAndVisible()
         
         return true
     }
