@@ -357,7 +357,7 @@
 /*!
  Fetches the AVObject with the current data from the server.
  */
-- (void)fetch;
+- (BOOL)fetch;
 /*!
  Fetches the AVObject with the current data from the server and sets an error if it occurs.
  @param error Pointer to an NSError that will be set if necessary.
@@ -564,6 +564,22 @@
  @param block The block to execute.
  */
 - (void)deleteEventuallyWithBlock:(AVIdResultBlock)block;
+
+
+/*!
+ *  Deletes all objects specified in object array.
+ *  @param objects object array
+ *  @return whether the delete succeeded
+ */
++ (BOOL)deleteAll:(NSArray *)objects;
+
+/*!
+ *  Deletes all objects specified in object array.
+ *  @param objects object array
+ *  @param error Pointer to an NSError that will be set if necessary.
+ *  @return whether the delete succeeded.
+ */
++ (BOOL)deleteAll:(NSArray *)objects error:(NSError **)error;
 
 /**
  *  Deletes all objects specified in object array. The element of objects array is AVObject or its subclass.

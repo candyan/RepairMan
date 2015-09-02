@@ -621,7 +621,7 @@
 @property (readwrite, assign) AVCachePolicy cachePolicy;
 
 /* !
- The age after which a cached value will be ignored
+ The age(seconds) after which a cached value will be ignored.
  */
 @property (readwrite, assign) NSTimeInterval maxCacheAge;
 

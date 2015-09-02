@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18BBFE451B897BFC00A4BFF6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */; };
-		18BBFE471B89890E00A4BFF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */; };
-		18BBFE491B89992D00A4BFF6 /* RequestRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */; };
-		18BFBEE31B92E533004CE9DE /* ABRSProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFBEE21B92E533004CE9DE /* ABRSProfileHeader.swift */; };
-		18BFBEE51B92ED87004CE9DE /* PublishRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFBEE41B92ED87004CE9DE /* PublishRepairViewController.swift */; };
+		753EC24B1B95892300FDA8E6 /* ABRSExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EC24A1B95892300FDA8E6 /* ABRSExtensions.swift */; };
+		753EC25A1B959AD600FDA8E6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EC2531B959AD600FDA8E6 /* LaunchViewController.swift */; };
+		753EC25B1B959AD600FDA8E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EC2541B959AD600FDA8E6 /* LoginViewController.swift */; };
+		753EC25C1B959AD600FDA8E6 /* PublishRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EC2551B959AD600FDA8E6 /* PublishRepairViewController.swift */; };
+		753EC25E1B959AD600FDA8E6 /* ABRSProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EC2591B959AD600FDA8E6 /* ABRSProfileHeader.swift */; };
+		753EC2601B959B5B00FDA8E6 /* RepairOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EC25F1B959B5B00FDA8E6 /* RepairOrderCell.swift */; };
+		753EC2661B95A12C00FDA8E6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EC2651B95A12C00FDA8E6 /* HomeViewController.swift */; };
+		753EC2681B95B45900FDA8E6 /* RepairEditEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EC2671B95B45900FDA8E6 /* RepairEditEntryCell.swift */; };
+		756577681B96A89B00B7C059 /* ABRSRepairOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756577671B96A89B00B7C059 /* ABRSRepairOrder.swift */; };
+		7565776B1B96D7E300B7C059 /* YATableDataSource+ABRS.m in Sources */ = {isa = PBXBuildFile; fileRef = 7565776A1B96D7E300B7C059 /* YATableDataSource+ABRS.m */; };
+		7565776D1B96EFFB00B7C059 /* ItemPhotosEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565776C1B96EFFB00B7C059 /* ItemPhotosEditorView.swift */; };
 		75FB14311B80816900752353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14301B80816900752353 /* AppDelegate.swift */; };
 		75FB14381B80816900752353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FB14371B80816900752353 /* Assets.xcassets */; };
 		75FB14461B80816900752353 /* RepairManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14451B80816900752353 /* RepairManTests.swift */; };
@@ -30,11 +36,18 @@
 
 /* Begin PBXFileReference section */
 		18BBFE401B897B4E00A4BFF6 /* RepairMan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RepairMan-Bridging-Header.h"; sourceTree = "<group>"; };
-		18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRepairViewController.swift; sourceTree = "<group>"; };
-		18BFBEE21B92E533004CE9DE /* ABRSProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABRSProfileHeader.swift; sourceTree = "<group>"; };
-		18BFBEE41B92ED87004CE9DE /* PublishRepairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishRepairViewController.swift; sourceTree = "<group>"; };
+		753EC24A1B95892300FDA8E6 /* ABRSExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABRSExtensions.swift; sourceTree = "<group>"; };
+		753EC2531B959AD600FDA8E6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		753EC2541B959AD600FDA8E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		753EC2551B959AD600FDA8E6 /* PublishRepairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishRepairViewController.swift; sourceTree = "<group>"; };
+		753EC2591B959AD600FDA8E6 /* ABRSProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABRSProfileHeader.swift; sourceTree = "<group>"; };
+		753EC25F1B959B5B00FDA8E6 /* RepairOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepairOrderCell.swift; sourceTree = "<group>"; };
+		753EC2651B95A12C00FDA8E6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		753EC2671B95B45900FDA8E6 /* RepairEditEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepairEditEntryCell.swift; sourceTree = "<group>"; };
+		756577671B96A89B00B7C059 /* ABRSRepairOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABRSRepairOrder.swift; sourceTree = "<group>"; };
+		756577691B96D7E300B7C059 /* YATableDataSource+ABRS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YATableDataSource+ABRS.h"; sourceTree = "<group>"; };
+		7565776A1B96D7E300B7C059 /* YATableDataSource+ABRS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YATableDataSource+ABRS.m"; sourceTree = "<group>"; };
+		7565776C1B96EFFB00B7C059 /* ItemPhotosEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemPhotosEditorView.swift; sourceTree = "<group>"; };
 		75FB142D1B80816900752353 /* RepairMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepairMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FB14301B80816900752353 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75FB14371B80816900752353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,8 +56,6 @@
 		75FB14411B80816900752353 /* RepairManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepairManTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FB14451B80816900752353 /* RepairManTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairManTests.swift; sourceTree = "<group>"; };
 		75FB14471B80816A00752353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75FB14501B80816A00752353 /* RepairManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairManUITests.swift; sourceTree = "<group>"; };
-		75FB14521B80816A00752353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7945A48A93DDEEB4BDCD7601 /* Pods-RepairMan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepairMan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepairMan/Pods-RepairMan.debug.xcconfig"; sourceTree = "<group>"; };
 		9A39638709B9D93C9F8BBBD4 /* Pods-RepairMan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepairMan.release.xcconfig"; path = "Pods/Target Support Files/Pods-RepairMan/Pods-RepairMan.release.xcconfig"; sourceTree = "<group>"; };
 		FDDF9CEA5CAF4DC6CB32C13F /* libPods-RepairMan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RepairMan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,12 +97,41 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		753EC2521B959AD600FDA8E6 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				753EC2531B959AD600FDA8E6 /* LaunchViewController.swift */,
+				753EC2541B959AD600FDA8E6 /* LoginViewController.swift */,
+				753EC2651B95A12C00FDA8E6 /* HomeViewController.swift */,
+				753EC2551B959AD600FDA8E6 /* PublishRepairViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		753EC2571B959AD600FDA8E6 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				756577671B96A89B00B7C059 /* ABRSRepairOrder.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		753EC2581B959AD600FDA8E6 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				753EC25F1B959B5B00FDA8E6 /* RepairOrderCell.swift */,
+				753EC2671B95B45900FDA8E6 /* RepairEditEntryCell.swift */,
+				7565776C1B96EFFB00B7C059 /* ItemPhotosEditorView.swift */,
+				753EC2591B959AD600FDA8E6 /* ABRSProfileHeader.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		75FB14241B80816900752353 = {
 			isa = PBXGroup;
 			children = (
 				75FB142F1B80816900752353 /* RepairMan */,
 				75FB14441B80816900752353 /* RepairManTests */,
-				75FB144F1B80816A00752353 /* RepairManUITests */,
 				75FB142E1B80816900752353 /* Products */,
 				7327D708D240DD0937DD5E1C /* Pods */,
 				0A0AAAB057CDE167BB27FFFC /* Frameworks */,
@@ -111,11 +151,12 @@
 			isa = PBXGroup;
 			children = (
 				75FB14301B80816900752353 /* AppDelegate.swift */,
-				18BFBEE21B92E533004CE9DE /* ABRSProfileHeader.swift */,
-				18BBFE461B89890E00A4BFF6 /* LoginViewController.swift */,
-				18BBFE441B897BFC00A4BFF6 /* LaunchViewController.swift */,
-				18BBFE481B89992D00A4BFF6 /* RequestRepairViewController.swift */,
-				18BFBEE41B92ED87004CE9DE /* PublishRepairViewController.swift */,
+				753EC2571B959AD600FDA8E6 /* models */,
+				753EC2581B959AD600FDA8E6 /* views */,
+				753EC2521B959AD600FDA8E6 /* controllers */,
+				753EC24A1B95892300FDA8E6 /* ABRSExtensions.swift */,
+				756577691B96D7E300B7C059 /* YATableDataSource+ABRS.h */,
+				7565776A1B96D7E300B7C059 /* YATableDataSource+ABRS.m */,
 				75FB14371B80816900752353 /* Assets.xcassets */,
 				75FB14391B80816900752353 /* LaunchScreen.storyboard */,
 				75FB143C1B80816900752353 /* Info.plist */,
@@ -131,15 +172,6 @@
 				75FB14471B80816A00752353 /* Info.plist */,
 			);
 			path = RepairManTests;
-			sourceTree = "<group>";
-		};
-		75FB144F1B80816A00752353 /* RepairManUITests */ = {
-			isa = PBXGroup;
-			children = (
-				75FB14501B80816A00752353 /* RepairManUITests.swift */,
-				75FB14521B80816A00752353 /* Info.plist */,
-			);
-			path = RepairManUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,12 +307,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18BBFE471B89890E00A4BFF6 /* LoginViewController.swift in Sources */,
-				18BBFE491B89992D00A4BFF6 /* RequestRepairViewController.swift in Sources */,
-				18BFBEE31B92E533004CE9DE /* ABRSProfileHeader.swift in Sources */,
-				18BFBEE51B92ED87004CE9DE /* PublishRepairViewController.swift in Sources */,
+				753EC25B1B959AD600FDA8E6 /* LoginViewController.swift in Sources */,
+				753EC24B1B95892300FDA8E6 /* ABRSExtensions.swift in Sources */,
+				753EC2681B95B45900FDA8E6 /* RepairEditEntryCell.swift in Sources */,
+				7565776D1B96EFFB00B7C059 /* ItemPhotosEditorView.swift in Sources */,
+				753EC25E1B959AD600FDA8E6 /* ABRSProfileHeader.swift in Sources */,
 				75FB14311B80816900752353 /* AppDelegate.swift in Sources */,
-				18BBFE451B897BFC00A4BFF6 /* LaunchViewController.swift in Sources */,
+				756577681B96A89B00B7C059 /* ABRSRepairOrder.swift in Sources */,
+				753EC2661B95A12C00FDA8E6 /* HomeViewController.swift in Sources */,
+				753EC25C1B959AD600FDA8E6 /* PublishRepairViewController.swift in Sources */,
+				753EC25A1B959AD600FDA8E6 /* LaunchViewController.swift in Sources */,
+				7565776B1B96D7E300B7C059 /* YATableDataSource+ABRS.m in Sources */,
+				753EC2601B959B5B00FDA8E6 /* RepairOrderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
