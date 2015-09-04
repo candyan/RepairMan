@@ -25,18 +25,25 @@ class HomeViewController: YATableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
+        weak var weakSelf = self
+
         let orderQuery: AVQuery! = ABRSRepairOrder.query()
-        orderQuery.whereKey("poster", equalTo: AVUser.currentUser())
         orderQuery.cachePolicy = AVCachePolicy.NetworkElseCache
-        orderQuery.orderByDescending("createdAt")
         orderQuery.limit = 1000
 
-        weak var weakSelf = self
+        if AVUser.currentUser().role() == .Normal {
+            orderQuery.whereKey("poster", equalTo: AVUser.currentUser())
+            orderQuery.orderByDescending("createdAt")
+        } else {
+            orderQuery.whereKey("serviceman", equalTo: AVUser.currentUser())
+            orderQuery.orderByDescending("updatedAt")
+        }
+
         orderQuery.findObjectsInBackgroundWithBlock { (results, error) -> Void in
             weakSelf!.dataSource.setAllSectionObjects([results])
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,7 +76,7 @@ extension HomeViewController {
             publishRepairVC.delegate = self
             self.presentViewController(UINavigationController(rootViewController: publishRepairVC), animated: true, completion: nil)
         } else {
-            
+
         }
     }
 }
@@ -105,16 +112,24 @@ class HomeDataSource: YATableDataSource {
         cell.selectionStyle = .None
 
         let repairOrder = self.objectAtIndexPath(indexPath) as? ABRSRepairOrder
-        if AVUser.currentUser().role() == .Normal && repairOrder != nil {
-            let firstImage = repairOrder!.troubleImageFiles()?.first
-            if firstImage != nil {
-                firstImage!.getThumbnail(true, width: 180, height: 180, withBlock: { (image, error) -> Void in
-                    cell.avatarImageView?.image = image
-                })
-            }
-            cell.titleLabel!.text = repairOrder!.repairType().stringValue
-            cell.contentLabel!.text = repairOrder!.troubleDescription()
+
+        let firstImage = repairOrder!.troubleImageFiles()?.first
+        if firstImage != nil {
+            firstImage!.getThumbnail(true, width: 180, height: 180, withBlock: { (image, error) -> Void in
+                cell.avatarImageView?.image = image
+            })
         }
+
+        if repairOrder != nil {
+            if AVUser.currentUser().role() == .Normal {
+                cell.titleLabel!.text = repairOrder!.repairType().stringValue
+                cell.contentLabel!.text = repairOrder!.troubleDescription()
+            } else {
+                cell.titleLabel!.text = repairOrder!.poster().username
+                cell.contentLabel!.text = repairOrder!.troubleDescription()
+            }
+        }
+
 
         return cell
     }

@@ -28,6 +28,8 @@ class ABRSProfileHeader: UIView {
 
 extension ABRSProfileHeader {
     func loadSubviews() {
+
+        //load avatar image view
         avatarImageView = UIImageView()
         self.addSubview(avatarImageView!)
         
@@ -42,7 +44,8 @@ extension ABRSProfileHeader {
             maker.top.equalTo()(self).offset()(30);
             maker.centerX.equalTo()(self)
         })
-        
+
+        //load title label
         titleLabel = UILabel()
         self.addSubview(titleLabel!)
         
@@ -53,7 +56,8 @@ extension ABRSProfileHeader {
             maker.top.equalTo()(self.avatarImageView?.mas_bottom).offset()(30)
             maker.centerX.equalTo()(self)
         }
-        
+
+        //load subtitle label
         subtitleLabel = UILabel()
         self.addSubview(subtitleLabel!)
         
@@ -64,7 +68,8 @@ extension ABRSProfileHeader {
             maker.top.equalTo()(self.titleLabel?.mas_bottom).offset()(15)
             maker.centerX.equalTo()(self)
         }
-        
+
+        //load operation button
         operationButton = UIButton.buttonWithType(.Custom) as? UIButton
         self.addSubview(operationButton!)
         
@@ -73,13 +78,23 @@ extension ABRSProfileHeader {
             maker.height.mas_equalTo()(44)
             maker.centerX.equalTo()(self)
         }
-        
-        operationButton?.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 15)
+                operationButton?.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 15)
         
         operationButton?.layer.cornerRadius = 22
         operationButton?.layer.masksToBounds = true
         operationButton?.backgroundColor = UIColor(hex: 0x4A90E2)
         operationButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         operationButton?.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
+
+        //load bottom separator line
+        let bottomSL = YASeparatorLine(frame: CGRectZero, lineColor: UIColor(hex: 0x000000, alpha: 0.2), lineWidth: 1)
+        self.addSubview(bottomSL!)
+
+        bottomSL!.mas_makeConstraints { (maker) -> Void in
+            maker.bottom.equalTo()(self)
+            maker.height.mas_equalTo()(0.5)
+            maker.leading.equalTo()(self).offset()(10)
+            maker.trailing.equalTo()(self).offset()(-10)
+        }
     }
 }

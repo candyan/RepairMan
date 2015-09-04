@@ -101,5 +101,12 @@ class ABRSRepairOrder: AVObject, AVSubclassing {
     class func parseClassName() -> String! {
         return "ABRSRepairOrder"
     }
-   
+    
+    func serviceman() -> AVUser {
+        return (self["serviceman"] as! AVUser).fetchIfNeeded() as! AVUser
+    }
+
+    func setServiceman(newServiceman: AVUser) {
+        self["serviceman"] = newServiceman
+    }
 }
