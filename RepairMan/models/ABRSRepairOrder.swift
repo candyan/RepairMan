@@ -9,7 +9,7 @@
 import UIKit
 
 enum ABRSRepairType: Int {
-    case General = 1
+    case General = 0
     
     var stringValue: String {
         switch(self) {
@@ -37,77 +37,69 @@ enum ABRSRepairTroubleLevel: Int {
 }
 
 class ABRSRepairOrder: AVObject, AVSubclassing {
-    
-    var troubleImageURLs: [NSURL]? {
-        get {
-            var imageURLs = [NSURL]()
-            let imageURLStrs = self["trouble_image_urls"] as? [String]
-            if imageURLStrs != nil {
-                for urlStr in imageURLStrs! {
-                    imageURLs.append(NSURL(string: urlStr)!)
-                }
+
+    func troubleImageFiles() -> [AVFile]? {
+        return self["troubleImageFiles"] as? [AVFile]
+    }
+
+    func setTroubleImages(newImages: [UIImage]?) {
+        self.removeObjectForKey("troubleImageFiles")
+        if newImages != nil {
+            var imageFiles = [AVFile]()
+            for image in newImages! {
+                let imageData = UIImageJPEGRepresentation(image, 0.6)
+                var file = AVFile.fileWithName("\(imageData.md5()).jpg", data: imageData) as! AVFile
+                file.save()
+                imageFiles.append(file)
             }
-            return imageURLs
-        }
-        set(newImageURLs) {
-            self.removeObjectForKey("trouble_image_urls")
-            if newImageURLs != nil {
-                var imageURLStrs = [String]()
-                for imageURL in newImageURLs! {
-                    imageURLStrs.append(imageURL.absoluteString!)
-                }
-                self.addObjectsFromArray(imageURLStrs, forKey: "trouble_image_urls")
-            }
+            self.addObjectsFromArray(imageFiles, forKey: "troubleImageFiles")
         }
     }
-    
-    var repairType: ABRSRepairType {
-        get {
-            return ABRSRepairType(rawValue: self["repair_type"] as! Int)!
-        }
-        set(newType) {
-            self["repair_type"] = newType.rawValue
-        }
+
+    func repairType() -> ABRSRepairType {
+        return ABRSRepairType(rawValue: self["repairType"] as! Int)!
+    }
+
+    func setRepairType(newType: ABRSRepairType) {
+        self["repairType"] = newType.rawValue
+    }
+
+    func poster() -> AVUser {
+        return (self["poster"] as! AVUser).fetchIfNeeded() as! AVUser
+    }
+
+    func setPoster(newPoster: AVUser) {
+        self["poster"] = newPoster
+    }
+
+    func troubleDescription() -> String {
+        let desc = self["troubleDescription"] as? String
+        return (desc == nil) ? "" : desc!
+    }
+
+    func setTroubleDescription(newDesc: String) {
+        self["troubleDescription"] = newDesc
+    }
+
+    func address() -> String? {
+        let address = self["address"] as? String
+        return (address == nil) ? "" : address!
+    }
+
+    func setAddress(newAddress: String) {
+        self["address"] = newAddress
+    }
+
+    func troubleLevel() -> ABRSRepairTroubleLevel {
+        return ABRSRepairTroubleLevel(rawValue: self["troubleLevel"] as! Int)!
+    }
+
+    func setTroubleLevel(newLevel: ABRSRepairTroubleLevel) {
+        self["troubleLevel"] = newLevel.rawValue
     }
     
-    var poster: AVUser {
-        get {
-            return (self["poster"] as! AVUser).fetchIfNeeded() as! AVUser
-        }
-        set(newUser) {
-            self["poster"] = newUser
-        }
-    }
-    
-    var troubleDescription: String {
-        get {
-            return self["trouble_description"] as! String
-        }
-        set(newDesc) {
-            self["trouble_description"] = newDesc
-        }
-    }
-    
-    var address: String {
-        get {
-            return self["address"] as! String
-        }
-        set(newAddress) {
-            self["address"] = newAddress
-        }
-    }
-    
-    var troubleLevel: ABRSRepairTroubleLevel {
-        get {
-            return ABRSRepairTroubleLevel(rawValue: self["trouble_level"] as! Int)!
-        }
-        set(newLevel) {
-            self["trouble_level"] = newLevel.rawValue
-        }
-    }
-    
-    static func parseClassName() -> String! {
-        return NSStringFromClass(self)
+    class func parseClassName() -> String! {
+        return "ABRSRepairOrder"
     }
    
 }

@@ -21,6 +21,11 @@
 		75FB14311B80816900752353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14301B80816900752353 /* AppDelegate.swift */; };
 		75FB14381B80816900752353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FB14371B80816900752353 /* Assets.xcassets */; };
 		75FB14461B80816900752353 /* RepairManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB14451B80816900752353 /* RepairManTests.swift */; };
+		75FFA5F31B97503D00F20356 /* DefaultSkin.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 75FFA5F21B97503D00F20356 /* DefaultSkin.bundle */; };
+		75FFA5F51B9813FE00F20356 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75FFA5F41B9813FE00F20356 /* Launch Screen.xib */; };
+		75FFA5F71B9825CA00F20356 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFA5F61B9825CA00F20356 /* AppManager.swift */; };
+		75FFA5FB1B982AE800F20356 /* JSPopTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FFA5FA1B982AE800F20356 /* JSPopTextField.m */; };
+		75FFA5FE1B982CEA00F20356 /* NSString+ARLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FFA5FD1B982CEA00F20356 /* NSString+ARLength.m */; };
 		BEDFA1687E0E65118608409C /* libPods-RepairMan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDF9CEA5CAF4DC6CB32C13F /* libPods-RepairMan.a */; };
 /* End PBXBuildFile section */
 
@@ -51,11 +56,17 @@
 		75FB142D1B80816900752353 /* RepairMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepairMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FB14301B80816900752353 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75FB14371B80816900752353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		75FB143A1B80816900752353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75FB143C1B80816900752353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75FB14411B80816900752353 /* RepairManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepairManTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FB14451B80816900752353 /* RepairManTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairManTests.swift; sourceTree = "<group>"; };
 		75FB14471B80816A00752353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75FFA5F21B97503D00F20356 /* DefaultSkin.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DefaultSkin.bundle; sourceTree = "<group>"; };
+		75FFA5F41B9813FE00F20356 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		75FFA5F61B9825CA00F20356 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		75FFA5F91B982AE800F20356 /* JSPopTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSPopTextField.h; sourceTree = "<group>"; };
+		75FFA5FA1B982AE800F20356 /* JSPopTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPopTextField.m; sourceTree = "<group>"; };
+		75FFA5FC1B982CEA00F20356 /* NSString+ARLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ARLength.h"; sourceTree = "<group>"; };
+		75FFA5FD1B982CEA00F20356 /* NSString+ARLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ARLength.m"; sourceTree = "<group>"; };
 		7945A48A93DDEEB4BDCD7601 /* Pods-RepairMan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepairMan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepairMan/Pods-RepairMan.debug.xcconfig"; sourceTree = "<group>"; };
 		9A39638709B9D93C9F8BBBD4 /* Pods-RepairMan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepairMan.release.xcconfig"; path = "Pods/Target Support Files/Pods-RepairMan/Pods-RepairMan.release.xcconfig"; sourceTree = "<group>"; };
 		FDDF9CEA5CAF4DC6CB32C13F /* libPods-RepairMan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RepairMan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,16 +162,19 @@
 			isa = PBXGroup;
 			children = (
 				75FB14301B80816900752353 /* AppDelegate.swift */,
+				75FFA5F61B9825CA00F20356 /* AppManager.swift */,
 				753EC2571B959AD600FDA8E6 /* models */,
 				753EC2581B959AD600FDA8E6 /* views */,
 				753EC2521B959AD600FDA8E6 /* controllers */,
+				75FFA5F81B982A8600F20356 /* Libaray */,
 				753EC24A1B95892300FDA8E6 /* ABRSExtensions.swift */,
 				756577691B96D7E300B7C059 /* YATableDataSource+ABRS.h */,
 				7565776A1B96D7E300B7C059 /* YATableDataSource+ABRS.m */,
+				75FFA5F21B97503D00F20356 /* DefaultSkin.bundle */,
 				75FB14371B80816900752353 /* Assets.xcassets */,
-				75FB14391B80816900752353 /* LaunchScreen.storyboard */,
 				75FB143C1B80816900752353 /* Info.plist */,
 				18BBFE401B897B4E00A4BFF6 /* RepairMan-Bridging-Header.h */,
+				75FFA5F41B9813FE00F20356 /* Launch Screen.xib */,
 			);
 			path = RepairMan;
 			sourceTree = "<group>";
@@ -172,6 +186,17 @@
 				75FB14471B80816A00752353 /* Info.plist */,
 			);
 			path = RepairManTests;
+			sourceTree = "<group>";
+		};
+		75FFA5F81B982A8600F20356 /* Libaray */ = {
+			isa = PBXGroup;
+			children = (
+				75FFA5FC1B982CEA00F20356 /* NSString+ARLength.h */,
+				75FFA5FD1B982CEA00F20356 /* NSString+ARLength.m */,
+				75FFA5F91B982AE800F20356 /* JSPopTextField.h */,
+				75FFA5FA1B982AE800F20356 /* JSPopTextField.m */,
+			);
+			path = Libaray;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +281,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75FFA5F31B97503D00F20356 /* DefaultSkin.bundle in Resources */,
 				75FB14381B80816900752353 /* Assets.xcassets in Resources */,
+				75FFA5F51B9813FE00F20356 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,9 +340,12 @@
 				7565776D1B96EFFB00B7C059 /* ItemPhotosEditorView.swift in Sources */,
 				753EC25E1B959AD600FDA8E6 /* ABRSProfileHeader.swift in Sources */,
 				75FB14311B80816900752353 /* AppDelegate.swift in Sources */,
+				75FFA5F71B9825CA00F20356 /* AppManager.swift in Sources */,
 				756577681B96A89B00B7C059 /* ABRSRepairOrder.swift in Sources */,
 				753EC2661B95A12C00FDA8E6 /* HomeViewController.swift in Sources */,
 				753EC25C1B959AD600FDA8E6 /* PublishRepairViewController.swift in Sources */,
+				75FFA5FB1B982AE800F20356 /* JSPopTextField.m in Sources */,
+				75FFA5FE1B982CEA00F20356 /* NSString+ARLength.m in Sources */,
 				753EC25A1B959AD600FDA8E6 /* LaunchViewController.swift in Sources */,
 				7565776B1B96D7E300B7C059 /* YATableDataSource+ABRS.m in Sources */,
 				753EC2601B959B5B00FDA8E6 /* RepairOrderCell.swift in Sources */,
@@ -339,17 +369,6 @@
 			targetProxy = 75FB14421B80816900752353 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		75FB14391B80816900752353 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75FB143A1B80816900752353 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		75FB14531B80816A00752353 /* Debug */ = {
@@ -440,9 +459,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RepairMan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ABRS.RepairMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RepairMan/RepairMan-Bridging-Header.h";
@@ -457,9 +481,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RepairMan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ABRS.RepairMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RepairMan/RepairMan-Bridging-Header.h";

@@ -23,11 +23,14 @@ extension AppDelegate {
         self.setupLeanCloud()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
+        self.window!.rootViewController = AppManager.sharedManager.rootNavigator
+
+//        AVUser.logOut()
         if AVUser.currentUser() == nil {
-            self.window!.rootViewController = LaunchViewController(nibName: nil, bundle: nil)
+            AppManager.sharedManager.rootNavigator.setViewControllers([LaunchViewController()], animated: false)
+            AppManager.sharedManager.rootNavigator.navigationBarHidden = true
         } else {
-            self.window!.rootViewController = UINavigationController(rootViewController: HomeViewController())
+            AppManager.sharedManager.rootNavigator.setViewControllers([HomeViewController()], animated: false)
         }
         
         self.window!.makeKeyAndVisible()
@@ -64,6 +67,7 @@ extension AppDelegate {
         
         
     }
+    
     func setupLeanCloud() {
         ABRSRepairOrder.registerSubclass()
         AVOSCloud.setApplicationId("mr6gny1ipywksc4nzx39rnlsuok86z2shwwcsytfea15w1ls",

@@ -47,7 +47,7 @@ extension LoginViewController {
         nameTextField!.delegate = self
         
         nameTextField!.mas_makeConstraints({ (maker) -> Void in
-            maker.width.mas_equalTo()(150)
+            maker.width.mas_equalTo()(200)
             maker.centerX.equalTo()(self.view)
             maker.height.mas_equalTo()(50)
             maker.top.equalTo()(self.view).offset()(40)
@@ -68,7 +68,7 @@ extension LoginViewController {
         self.view.addSubview(nextButton!)
         
         nextButton!.mas_makeConstraints { (maker) -> Void in
-            maker.width.equalTo()(150)
+            maker.width.equalTo()(200)
             maker.height.equalTo()(44)
             maker.top.equalTo()(self.passwordTextField!.mas_bottom).offset()(20);
             maker.centerX.equalTo()(self.view)

@@ -12,7 +12,6 @@ class LaunchViewController: UIViewController {
     
     var launchImageView: UIImageView?
     var rightOperationButton: UIButton?
-    var leftOperationButton: UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,22 +38,12 @@ extension LaunchViewController {
             maker.edges.equalTo()(self.view)
         }
         
-        leftOperationButton = UIButton.launchButton("我要报修", color: UIColor(hex: 0x31CCAA))
-        self.view.addSubview(leftOperationButton!)
-        leftOperationButton!.mas_makeConstraints { (maker) -> Void in
-            maker.bottom.equalTo()(self.view).offset()(-30)
-            maker.height.mas_equalTo()(44)
-            maker.leading.equalTo()(self.view).offset()(30)
-        }
-        leftOperationButton!.addTarget(self, action: "leftOperationButtonTouchUpInsideHandler:", forControlEvents: .TouchUpInside)
-        
-        rightOperationButton = UIButton.launchButton("我要维修", color: UIColor(hex: 0x4A90E2))
+        rightOperationButton = UIButton.launchButton("登录", color: UIColor(hex: 0x4A90E2))
         self.view.addSubview(rightOperationButton!)
         
         rightOperationButton!.mas_makeConstraints { (maker) -> Void in
-            maker.leading.equalTo()(self.leftOperationButton!.mas_trailing).offset()(10)
-            maker.trailing.equalTo()(self.view).offset()(-30)
-            maker.width.equalTo()(self.leftOperationButton!)
+            maker.leading.equalTo()(self.view).offset()(50)
+            maker.trailing.equalTo()(self.view).offset()(-50)
             maker.bottom.equalTo()(self.view).offset()(-30)
             maker.height.mas_equalTo()(44)
         }
@@ -80,6 +69,8 @@ extension LaunchViewController {
 extension LaunchViewController : LoginViewControllerDelegate {
     func loginViewController(loginVC: LoginViewController, didFinishLoginWithInfo info: [String : AnyObject!]) {
         loginVC.dismissViewControllerAnimated(false, completion: nil)
+        AppManager.sharedManager.rootNavigator.setViewControllers([HomeViewController()], animated: false)
+        AppManager.sharedManager.rootNavigator.navigationBarHidden = false
     }
 }
 

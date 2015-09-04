@@ -59,7 +59,7 @@ extension RepairEditEntryCell {
             maker.trailing.equalTo()(self.contentView).offset()(-25)
         }
         
-        let accessoryImageView = UIImageView(image: UIImage(name: "AccessoryArrow"))
+        let accessoryImageView = UIImageView(image: UIImage(named: "AccessoryArrow"))
         self.contentView.addSubview(accessoryImageView)
         
         accessoryImageView.mas_makeConstraints { (maker) -> Void in

@@ -8,9 +8,15 @@
 
 import UIKit
 
+@objc protocol PublishRepairViewControllerDelegate:NSObjectProtocol {
+    optional func publishRepairViewController(publishRepairVC: PublishRepairViewController, didFinishPublishWithInfo info: [String: AnyObject!])
+}
+
+
 class PublishRepairViewController: YATableViewController {
-    
-    weak var sendButton: UIButton?
+
+    weak var delegate: PublishRepairViewControllerDelegate?
+    var sendButton: UIButton?
     
     var publishRepairDS: PublishRepairDataSource {
         return self.dataSource as! PublishRepairDataSource
@@ -20,11 +26,11 @@ class PublishRepairViewController: YATableViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.edgesForExtendedLayout = .None
         
         self.setupNavigator()
-        
-        self.loadSubviews()
         self.registerDataSourceClass(PublishRepairDataSource.self)
+        self.loadSubviews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +39,20 @@ class PublishRepairViewController: YATableViewController {
     }
     
     func sendButtonTouchUpInsideHandler(sender: UIButton) {
-        
+        let photos = self.publishRepairDS.photosEditorView.photos
+        if photos.count != 0 {
+            self.publishRepairDS.repairOrder.setTroubleImages(photos as? [UIImage])
+        }
+        weak var weakSelf = self
+        MBProgressHUD.showProgressHUDWithText("正在保修...")
+        self.publishRepairDS.repairOrder.saveInBackgroundWithBlock({ (success, error) -> Void in
+            if success == true {
+                MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyboardWindow(),
+                    animated: false)
+                weakSelf?.delegate?.publishRepairViewController!(weakSelf!,
+                    didFinishPublishWithInfo: ["order": weakSelf?.publishRepairDS.repairOrder])
+            }
+        })
     }
 
 }
@@ -76,14 +95,49 @@ extension PublishRepairViewController {
 class PublishRepairDataSource: YATableDataSource {
     
     var repairOrder: ABRSRepairOrder!
-    
-    override init!(tableView: UITableView!) {
-        repairOrder = ABRSRepairOrder()
-        repairOrder.poster = AVUser.currentUser()
-        repairOrder.repairType = .General
-        repairOrder.troubleLevel = .NotUrgent
-        
+    var photosEditorView: ItemPhotosEditorView!
+
+    override init() {
+        super.init()
+    }
+
+    override init(tableView: UITableView!) {
         super.init(tableView: tableView)
+
+        repairOrder = ABRSRepairOrder()
+        repairOrder.setPoster(AVUser.currentUser())
+        repairOrder.setRepairType(.General)
+        repairOrder.setTroubleLevel(.NotUrgent)
+
+        photosEditorView = ItemPhotosEditorView(frame: CGRectZero)
+        photosEditorView.showInTableView(tableView)
+
+        weak var weakSelf = self
+        photosEditorView.photoButtonDidTouchUpInsideBlock = {(photo: UIImage, index: Int) -> Void in
+            let sheet = YAActionSheet(title: nil)
+            sheet.setDestructiveButtonWithTitle("删除", block: { () -> Void in
+                weakSelf?.photosEditorView.removeItemPhoto(photo)
+            })
+            sheet.setCancelButtonWithTitle("取消", block: nil)
+            sheet.showInView(UIApplication.sharedApplication().keyboardWindow())
+        }
+
+        photosEditorView.addButtonDidTouchUpInsideBlock = {() -> Void in
+            let sheet = YAActionSheet(title: "添加故障图片")
+            sheet.addButtonWithTitle("相机", block: { () -> Void in
+                let imagePicker = AppManager.sharedManager.rootNavigator.visibleViewController?.presentImagePickerController(.Camera)
+                imagePicker?.delegate = weakSelf
+            })
+
+            sheet.addButtonWithTitle("相册", block: { () -> Void in
+                let imagePicker = AppManager.sharedManager.rootNavigator.visibleViewController?.presentImagePickerController(.PhotoLibrary)
+                imagePicker?.delegate = weakSelf
+            })
+
+            sheet.setCancelButtonWithTitle("取消", block: nil)
+
+            sheet.showInView(UIApplication.sharedApplication().keyboardWindow())
+        }
         
         tableView.registerReuseCellClass(RepairEditEntryCell.self)
     }
@@ -106,19 +160,19 @@ class PublishRepairDataSource: YATableDataSource {
         switch indexPath.row {
         case 0:
             cell.titleLabel?.text = "故障类型"
-            cell.contentLabel?.text = repairOrder.repairType.stringValue
+            cell.contentLabel?.text = repairOrder.repairType().stringValue
 
         case 1:
             cell.titleLabel?.text = "文字描述"
-            cell.contentLabel?.text = repairOrder.troubleDescription
+            cell.contentLabel?.text = repairOrder.troubleDescription()
             
         case 2:
             cell.titleLabel?.text = "紧急程度"
-            cell.contentLabel?.text = repairOrder.troubleLevel.stringValue
+            cell.contentLabel?.text = repairOrder.troubleLevel().stringValue
             
         case 3:
             cell.titleLabel?.text = "地       点"
-            cell.contentLabel?.text = repairOrder.address
+            cell.contentLabel?.text = repairOrder.address()
             
         default:
             cell.titleLabel?.text = ""
@@ -127,5 +181,68 @@ class PublishRepairDataSource: YATableDataSource {
         }
         
         return cell
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+        weak var weakSelf = self
+        switch indexPath.row {
+        case 1:
+            let popTextField = JSPopTextField()
+            popTextField.numberOfWords = 0
+            popTextField.text = self.repairOrder.troubleDescription()
+            popTextField.didEndEditingBlock = {(textField: JSPopTextField!) -> Void in
+                weakSelf?.repairOrder.setTroubleDescription(textField.text)
+                textField.dismiss()
+                weakSelf?.tableView().reloadData()
+            }
+            popTextField.showInView(UIApplication.sharedApplication().keyWindow)
+
+        case 2:
+            ActionSheetStringPicker.showPickerWithTitle("选择紧急程度",
+                rows: [
+                    ABRSRepairTroubleLevel.NotUrgent.stringValue,
+                    ABRSRepairTroubleLevel.Urgent.stringValue,
+                    ABRSRepairTroubleLevel.VeryUrgent.stringValue,
+                ],
+                initialSelection: self.repairOrder.troubleLevel().rawValue,
+                doneBlock: { (picker, selectIndex, selectString) -> Void in
+                    weakSelf?.repairOrder.setTroubleLevel(ABRSRepairTroubleLevel(rawValue: selectIndex)!)
+                    weakSelf?.tableView().reloadData()
+            },
+                cancelBlock: nil,
+                origin: UIApplication.sharedApplication().keyboardWindow())
+
+        case 3:
+            let popTextField = JSPopTextField()
+            popTextField.numberOfWords = 0
+            popTextField.text = self.repairOrder.address()
+
+            popTextField.didEndEditingBlock = {(textField: JSPopTextField!) -> Void in
+                weakSelf?.repairOrder.setAddress(textField.text)
+                textField.dismiss()
+                weakSelf?.tableView().reloadData()
+            }
+
+            popTextField.showInView(UIApplication.sharedApplication().keyWindow)
+
+        default:
+            break
+        }
+    }
+}
+
+extension PublishRepairDataSource: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+            let editImage = info[UIImagePickerControllerEditedImage] as? UIImage
+            if editImage != nil {
+                self.photosEditorView.addItemPhoto(editImage!)
+            }
+            picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
 }

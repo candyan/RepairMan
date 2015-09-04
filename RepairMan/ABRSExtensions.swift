@@ -47,21 +47,80 @@ enum ABRSUserRole: Int {
 }
 
 extension AVUser {
-    var department: String {
-        get {
-            return self["department"] as! String
-        }
-        set(newDepartment) {
-            self["department"] = newDepartment
-        }
+    func department() -> String {
+        return self["department"] as! String
     }
-    
-    var role: ABRSUserRole {
-        get {
-            return ABRSUserRole(rawValue: self["abrs_role"] as! Int)!
+
+    func role() -> ABRSUserRole {
+        return ABRSUserRole(rawValue: self["abrsRole"] as! Int)!
+    }
+}
+
+extension UIWindow {
+    var visiableNavigator: UINavigationController? {
+        var currentNavigator: UINavigationController? = nil
+
+        var nextVC = self.rootViewController;
+
+        while nextVC != nil {
+            if (nextVC!.isKindOfClass(UINavigationController.self)) {
+                currentNavigator = nextVC as? UINavigationController
+            }
+
+            if (nextVC!.presentedViewController != nil) {
+                nextVC = nextVC!.presentedViewController
+            } else if (nextVC!.isKindOfClass(UINavigationController.self)) {
+                nextVC = (nextVC as! UINavigationController).visibleViewController
+            } else if (nextVC!.isKindOfClass(UITabBarController.self)) {
+                nextVC = (nextVC as! UITabBarController).selectedViewController
+            } else {
+                nextVC = nil
+            }
         }
-        set(newRole) {
-            self["abrs_role"] = newRole.rawValue
+        
+        return currentNavigator;
+    }
+}
+
+extension UIViewController {
+    func presentImagePickerController(sourceType: UIImagePickerControllerSourceType) -> UIImagePickerController? {
+        if (UIImagePickerController.isSourceTypeAvailable(sourceType)) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = sourceType
+            imagePickerController.allowsEditing = true
+
+            imagePickerController.navigationBar.tintColor = UIColor.whiteColor()
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+
+            return imagePickerController
         }
+
+        return nil
+    }
+}
+
+extension String {
+    func boundingRectWithConstraints(size: CGSize,
+        attributes:[String: AnyObject!],
+        limitedToNumberOfLines lines: Int) -> CGRect {
+            let currentStr = self as NSString
+            var constraintsHeight = size.height
+
+            let font = attributes[NSFontAttributeName] as? UIFont
+            if lines != 0 && font != nil {
+                constraintsHeight = CGFloat(lines) * font!.lineHeight
+
+                let ps = attributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle
+
+                if ps != nil {
+                    constraintsHeight += CGFloat(lines) * ps!.lineSpacing
+                }
+
+            }
+
+            return currentStr.boundingRectWithSize(CGSize(width: size.width, height: constraintsHeight),
+                options: (.TruncatesLastVisibleLine | .UsesLineFragmentOrigin | .UsesFontLeading),
+                attributes: attributes,
+                context: nil)
     }
 }
