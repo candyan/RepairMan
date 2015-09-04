@@ -108,6 +108,7 @@ class PublishRepairDataSource: YATableDataSource {
         repairOrder.setPoster(AVUser.currentUser())
         repairOrder.setRepairType(.General)
         repairOrder.setTroubleLevel(.NotUrgent)
+        repairOrder.setRepairStatus(.Waiting)
 
         photosEditorView = ItemPhotosEditorView(frame: CGRectZero)
         photosEditorView.showInTableView(tableView)

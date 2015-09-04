@@ -53,12 +53,13 @@ class HomeViewController: YATableViewController {
 
 extension HomeViewController {
     private func loadSubviews() {
-        header = ABRSProfileHeader(frame: CGRectMake(0, 0, self.view.bounds.width, 259))
+        header = ABRSProfileHeader(frame: CGRectMake(0, 0, self.view.bounds.width, 279))
         self.tableView?.tableHeaderView = header
         
         let currentUser: AVUser = AVUser.currentUser()
         header?.titleLabel?.text = currentUser.username
         header?.subtitleLabel?.text = currentUser.department()
+        header?.segmentLabel?.text = (AVUser.currentUser().role() == .Normal) ? "我的报修" : "我的维修"
         header?.operationButton?.setTitle(currentUser.homeOperationButtonTitle, forState: .Normal)
         header?.operationButton?.addTarget(self, action: "publishRepairButtonTouchUpInsideHandler:", forControlEvents: .TouchUpInside)
     }
@@ -76,6 +77,9 @@ extension HomeViewController {
             publishRepairVC.delegate = self
             self.presentViewController(UINavigationController(rootViewController: publishRepairVC), animated: true, completion: nil)
         } else {
+            let pickerController = RepairOrderPickerController()
+            pickerController.title = "我要维修"
+            self.presentViewController(UINavigationController(rootViewController: pickerController), animated: true, completion: nil)
 
         }
     }
@@ -132,10 +136,6 @@ class HomeDataSource: YATableDataSource {
 
 
         return cell
-    }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
     }
 
 }
