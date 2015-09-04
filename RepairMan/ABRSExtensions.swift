@@ -43,7 +43,7 @@ extension MBProgressHUD {
 }
 
 enum ABRSUserRole: Int {
-    case Normal = 1, GeneralMaintenance
+    case Normal = 1, GeneralMaintenance, TechnologyMaintenance
 }
 
 extension AVUser {

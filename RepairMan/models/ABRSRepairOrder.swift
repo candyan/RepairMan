@@ -9,12 +9,35 @@
 import UIKit
 
 enum ABRSRepairType: Int {
-    case General = 0
+    case General = 0, Hardware, Software
     
     var stringValue: String {
         switch(self) {
         case .General:
-            return "一般行政维修"
+            return "行政维修类（门锁、空调、桌椅等）"
+
+        case .Hardware:
+            return "办公设备类（打印机、复印机、传真机等）"
+
+        case .Software:
+            return "系统软件类"
+        }
+    }
+}
+
+enum ABRSRepairStatus: Int {
+    case Waiting = 0, Repairing, Finished
+
+    var stringValue: String {
+        switch(self) {
+        case .Waiting:
+            return "等待维修"
+
+        case .Repairing:
+            return "维修中"
+
+        case .Finished:
+            return "已完成"
         }
     }
 }
@@ -109,4 +132,13 @@ class ABRSRepairOrder: AVObject, AVSubclassing {
     func setServiceman(newServiceman: AVUser) {
         self["serviceman"] = newServiceman
     }
+
+    func repairStatus() -> ABRSRepairStatus {
+        return ABRSRepairStatus(rawValue: self["repairStatus"] as! Int)!
+    }
+
+    func setRepairStatus(newStatus: ABRSRepairStatus) {
+        self["repairStatus"] = newStatus.rawValue
+    }
+
 }

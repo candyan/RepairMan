@@ -14,7 +14,8 @@ class ABRSProfileHeader: UIView {
     var titleLabel: UILabel?
     var subtitleLabel: UILabel?
     var operationButton: UIButton?
-    
+    var segmentLabel: UILabel?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -86,14 +87,35 @@ extension ABRSProfileHeader {
         operationButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         operationButton?.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
 
-        //load bottom separator line
-        let bottomSL = YASeparatorLine(frame: CGRectZero, lineColor: UIColor(hex: 0x000000, alpha: 0.2), lineWidth: 1)
-        self.addSubview(bottomSL!)
+        segmentLabel = UILabel()
+        self.addSubview(segmentLabel!)
 
-        bottomSL!.mas_makeConstraints { (maker) -> Void in
-            maker.bottom.equalTo()(self)
+        segmentLabel?.font = UIFont(name: "Helvetica", size: 14)
+        segmentLabel?.textColor = UIColor(hex: 0x666666)
+
+        segmentLabel!.mas_makeConstraints { (maker) -> Void in
+            maker.centerY.equalTo()(self.mas_bottom)
+            maker.centerX.equalTo()(self)
+        }
+
+        //load bottom separator line
+        let leftSL = YASeparatorLine(frame: CGRectZero, lineColor: UIColor(hex: 0x000000, alpha: 0.2), lineWidth: 1)
+        self.addSubview(leftSL!)
+
+        leftSL!.mas_makeConstraints { (maker) -> Void in
+            maker.centerY.equalTo()(self.segmentLabel)
             maker.height.mas_equalTo()(0.5)
             maker.leading.equalTo()(self).offset()(10)
+            maker.trailing.equalTo()(self.segmentLabel?.mas_leading).offset()(-10)
+        }
+
+        let rightSL = YASeparatorLine(frame: CGRectZero, lineColor: UIColor(hex: 0x000000, alpha: 0.2), lineWidth: 1)
+        self.addSubview(rightSL!)
+
+        rightSL!.mas_makeConstraints { (maker) -> Void in
+            maker.centerY.equalTo()(self.segmentLabel)
+            maker.height.mas_equalTo()(0.5)
+            maker.leading.equalTo()(self.segmentLabel?.mas_trailing).offset()(10)
             maker.trailing.equalTo()(self).offset()(-10)
         }
     }

@@ -26,6 +26,7 @@
 		75FFA5F71B9825CA00F20356 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFA5F61B9825CA00F20356 /* AppManager.swift */; };
 		75FFA5FB1B982AE800F20356 /* JSPopTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FFA5FA1B982AE800F20356 /* JSPopTextField.m */; };
 		75FFA5FE1B982CEA00F20356 /* NSString+ARLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FFA5FD1B982CEA00F20356 /* NSString+ARLength.m */; };
+		75FFA6001B998BFE00F20356 /* RepairOrderPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFA5FF1B998BFE00F20356 /* RepairOrderPickerController.swift */; };
 		BEDFA1687E0E65118608409C /* libPods-RepairMan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDF9CEA5CAF4DC6CB32C13F /* libPods-RepairMan.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		75FFA5FA1B982AE800F20356 /* JSPopTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPopTextField.m; sourceTree = "<group>"; };
 		75FFA5FC1B982CEA00F20356 /* NSString+ARLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ARLength.h"; sourceTree = "<group>"; };
 		75FFA5FD1B982CEA00F20356 /* NSString+ARLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ARLength.m"; sourceTree = "<group>"; };
+		75FFA5FF1B998BFE00F20356 /* RepairOrderPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepairOrderPickerController.swift; sourceTree = "<group>"; };
 		7945A48A93DDEEB4BDCD7601 /* Pods-RepairMan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepairMan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepairMan/Pods-RepairMan.debug.xcconfig"; sourceTree = "<group>"; };
 		9A39638709B9D93C9F8BBBD4 /* Pods-RepairMan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepairMan.release.xcconfig"; path = "Pods/Target Support Files/Pods-RepairMan/Pods-RepairMan.release.xcconfig"; sourceTree = "<group>"; };
 		FDDF9CEA5CAF4DC6CB32C13F /* libPods-RepairMan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RepairMan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				753EC2541B959AD600FDA8E6 /* LoginViewController.swift */,
 				753EC2651B95A12C00FDA8E6 /* HomeViewController.swift */,
 				753EC2551B959AD600FDA8E6 /* PublishRepairViewController.swift */,
+				75FFA5FF1B998BFE00F20356 /* RepairOrderPickerController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				753EC25E1B959AD600FDA8E6 /* ABRSProfileHeader.swift in Sources */,
 				75FB14311B80816900752353 /* AppDelegate.swift in Sources */,
 				75FFA5F71B9825CA00F20356 /* AppManager.swift in Sources */,
+				75FFA6001B998BFE00F20356 /* RepairOrderPickerController.swift in Sources */,
 				756577681B96A89B00B7C059 /* ABRSRepairOrder.swift in Sources */,
 				753EC2661B95A12C00FDA8E6 /* HomeViewController.swift in Sources */,
 				753EC25C1B959AD600FDA8E6 /* PublishRepairViewController.swift in Sources */,
