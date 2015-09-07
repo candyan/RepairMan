@@ -14,6 +14,7 @@ class RepairOrderCell: UITableViewCell {
     var titleLabel: UILabel?
     var subTitleLabel: UILabel?
     var contentLabel: UILabel?
+    var statusLabel: UILabel?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -48,6 +49,16 @@ extension RepairOrderCell {
             maker.width.and().height().mas_equalTo()(60)
             maker.leading.equalTo()(self.contentView).offset()(10)
         }
+        
+        statusLabel = UILabel(frame: CGRectZero)
+        self.avatarImageView!.addSubview(statusLabel!)
+        
+        statusLabel!.mas_makeConstraints({ (maker) -> Void in
+            maker.leading.and().trailing().and().bottom().equalTo()(self.avatarImageView!)
+            maker.height.mas_equalTo()(44)
+        })
+        statusLabel!.font = UIFont.helveticaFontOfSize(12)
+        statusLabel!.textColor = UIColor.whiteColor()
 
         titleLabel = UILabel(frame: CGRectZero)
         self.contentView.addSubview(titleLabel!)

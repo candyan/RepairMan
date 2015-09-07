@@ -188,6 +188,22 @@ class PublishRepairDataSource: YATableDataSource {
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         weak var weakSelf = self
         switch indexPath.row {
+            
+        case 0:
+            ActionSheetStringPicker.showPickerWithTitle("选择故障类型",
+                rows: [
+                    ABRSRepairType.General.stringValue,
+                    ABRSRepairType.Hardware.stringValue,
+                    ABRSRepairType.Software.stringValue,
+                ],
+                initialSelection: self.repairOrder.repairType().rawValue,
+                doneBlock: { (picker, selectIndex, selectString) -> Void in
+                    weakSelf?.repairOrder.setRepairType(ABRSRepairType(rawValue: selectIndex)!)
+                    weakSelf?.tableView().reloadData()
+                },
+                cancelBlock: nil,
+                origin: UIApplication.sharedApplication().keyboardWindow())
+            
         case 1:
             let popTextField = JSPopTextField()
             popTextField.numberOfWords = 0

@@ -128,16 +128,59 @@ class HomeDataSource: YATableDataSource {
             if AVUser.currentUser().role() == .Normal {
                 cell.titleLabel!.text = repairOrder!.repairType().stringValue
                 cell.contentLabel!.text = repairOrder!.troubleDescription()
+                cell.statusLabel!.text = repairOrder!.repairStatus().stringValue
             } else {
                 cell.titleLabel!.text = repairOrder!.poster().username
                 cell.contentLabel!.text = repairOrder!.troubleDescription()
+                cell.statusLabel!.text = repairOrder!.troubleLevel().stringValue
             }
         }
 
-
         return cell
     }
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+        
+        if AVUser.currentUser().role() != .Normal {
+            weak var repairOrder = self.objectAtIndexPath(indexPath) as? ABRSRepairOrder
+            weak var weakSelf = self
+            if repairOrder?.repairStatus() == .Repairing {
+                let sheet = YAActionSheet()
+                
+                sheet.addButtonWithTitle("联系报修人", block: { () -> Void in
+                    let phoneURL = NSURL(string: "tel://\(repairOrder?.poster().mobilePhoneNumber)")
+                    UIApplication.sharedApplication().openURL(phoneURL!)
+                })
+                
+                sheet.addButtonWithTitle("维修完成", block: { () -> Void in
+                    weakSelf?.finishRepairOrder(repairOrder!)
+                })
+                
+                sheet.showInView(UIApplication.sharedApplication().keyboardWindow())
+            }
+        }
+    }
+    
+    private func finishRepairOrder(repairOrder: ABRSRepairOrder) {
+        let alert = YAAlertView(title: "维修完成了？", message: "这个东西已经修完了？")
+        weak var weakSelf = self
+        alert.setCancelButtonWithTitle("还没有", block: nil)
+        alert.addButtonWithTitle("修完了", block: { () -> Void in
+            repairOrder.setRepairStatus(.Finished)
+            MBProgressHUD.showProgressHUDWithText("请求中...")
+            repairOrder.saveInBackgroundWithBlock({ (success, error) -> Void in
+                MBProgressHUD.hideHUDForView(UIApplication.sharedApplication().keyboardWindow(),
+                    animated: false)
+                if success == true {
+                    weakSelf?.tableView().reloadData()
+                } else {
+                    MBProgressHUD.showHUDWithText("请求失败", complete: nil)
+                }
+            })
+        })
+        alert.show()
+    }
 }
 
 extension AVUser {

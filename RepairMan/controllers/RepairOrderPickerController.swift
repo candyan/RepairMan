@@ -62,20 +62,29 @@ class RepairOrderPickerController: YATableViewController {
 
 extension RepairOrderPickerController: YATableDataSourceDelegate {
     func tableDataSource(dataSource: YATableDataSource!, didSelectObject object: AnyObject!, atIndexPath indexPath: NSIndexPath!) {
-        let selectRepairOrder = object as! ABRSRepairOrder
-        selectRepairOrder.setServiceman(AVUser.currentUser())
-        selectRepairOrder.setRepairStatus(.Repairing)
         weak var weakSelf = self
-        MBProgressHUD.showProgressHUDWithText("请求中...")
-        selectRepairOrder.saveInBackgroundWithBlock({ (success, error) -> Void in
-            if success == true {
-                MBProgressHUD.showHUDWithText("请求成功", complete: { () -> Void in
-                    weakSelf?.dismissViewControllerAnimated(true, completion: nil)
-                })
-            } else {
-                MBProgressHUD.showHUDWithText("请求失败", complete: nil)
-            }
+        weak var selectRepairOrder = object as? ABRSRepairOrder
+        
+        selectRepairOrder!.setServiceman(AVUser.currentUser())
+        selectRepairOrder!.setRepairStatus(.Repairing)
+        
+        let alert = YAAlertView(title: "是否要维修这个", message: nil)
+        
+        alert.setCancelButtonWithTitle("点错了", block: nil)
+        alert.addButtonWithTitle("是的", block: { () -> Void in
+            MBProgressHUD.showProgressHUDWithText("请求中...")
+            selectRepairOrder!.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if success == true {
+                    MBProgressHUD.showHUDWithText("请求成功", complete: { () -> Void in
+                        weakSelf?.dismissViewControllerAnimated(true, completion: nil)
+                    })
+                } else {
+                    MBProgressHUD.showHUDWithText("请求失败", complete: nil)
+                }
+            })
         })
+        
+        alert.show()
     }
 }
 
