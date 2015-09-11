@@ -57,6 +57,7 @@ extension HomeViewController {
         self.tableView?.tableHeaderView = header
         
         let currentUser: AVUser = AVUser.currentUser()
+        header?.avatarImageView?.image =  UIImage(named: currentUser.role() == .Normal ? "NormalAvatar" : "RepairManAvatar")
         header?.titleLabel?.text = currentUser.username
         header?.subtitleLabel?.text = currentUser.department()
         header?.segmentLabel?.text = (AVUser.currentUser().role() == .Normal) ? "我的报修" : "我的维修"
