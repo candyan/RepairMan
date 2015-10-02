@@ -25,7 +25,7 @@ class RepairOrderPickerController: YATableViewController {
         weak var weakSelf = self
 
         let orderQuery: AVQuery! = ABRSRepairOrder.query()
-        orderQuery.cachePolicy = AVCachePolicy.NetworkElseCache
+        orderQuery.cachePolicy = AVCachePolicy.NetworkOnly
         orderQuery.limit = 1000
 
         orderQuery.whereKey("repairStatus", equalTo: ABRSRepairStatus.Waiting.rawValue)
@@ -38,7 +38,9 @@ class RepairOrderPickerController: YATableViewController {
         }
 
         orderQuery.findObjectsInBackgroundWithBlock { (results, error) -> Void in
-            weakSelf!.dataSource.setAllSectionObjects([results])
+            if results != nil {
+                weakSelf!.dataSource.setAllSectionObjects([results])
+            }
         }
     }
 
@@ -62,20 +64,29 @@ class RepairOrderPickerController: YATableViewController {
 
 extension RepairOrderPickerController: YATableDataSourceDelegate {
     func tableDataSource(dataSource: YATableDataSource!, didSelectObject object: AnyObject!, atIndexPath indexPath: NSIndexPath!) {
-        let selectRepairOrder = object as! ABRSRepairOrder
-        selectRepairOrder.setServiceman(AVUser.currentUser())
-        selectRepairOrder.setRepairStatus(.Repairing)
         weak var weakSelf = self
-        MBProgressHUD.showProgressHUDWithText("请求中...")
-        selectRepairOrder.saveInBackgroundWithBlock({ (success, error) -> Void in
-            if success == true {
-                MBProgressHUD.showHUDWithText("请求成功", complete: { () -> Void in
-                    weakSelf?.dismissViewControllerAnimated(true, completion: nil)
-                })
-            } else {
-                MBProgressHUD.showHUDWithText("请求失败", complete: nil)
-            }
+        weak var selectRepairOrder = object as? ABRSRepairOrder
+        
+        selectRepairOrder!.setServiceman(AVUser.currentUser())
+        selectRepairOrder!.setRepairStatus(.Repairing)
+        
+        let alert = YAAlertView(title: "是否要维修这个", message: nil)
+        
+        alert.setCancelButtonWithTitle("点错了", block: nil)
+        alert.addButtonWithTitle("是的", block: { () -> Void in
+            MBProgressHUD.showProgressHUDWithText("请求中...")
+            selectRepairOrder!.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if success == true {
+                    MBProgressHUD.showHUDWithText("请求成功", complete: { () -> Void in
+                        weakSelf?.dismissViewControllerAnimated(true, completion: nil)
+                    })
+                } else {
+                    MBProgressHUD.showHUDWithText("请求失败", complete: nil)
+                }
+            })
         })
+        
+        alert.show()
     }
 }
 
@@ -105,8 +116,10 @@ class RepairOrderPikerDataSource: YATableDataSource {
 
         let firstImage = repairOrder!.troubleImageFiles()?.first
         if firstImage != nil {
-            firstImage!.getThumbnail(true, width: 180, height: 180, withBlock: { (image, error) -> Void in
-                cell.avatarImageView?.image = image
+            AVFile.getFileWithObjectId(firstImage?.objectId, withBlock: { (file, error) -> Void in
+                file?.getThumbnail(true, width: 180, height: 180, withBlock: { (image, error) -> Void in
+                    cell.avatarImageView?.image = image
+                })
             })
         }
 
@@ -115,7 +128,8 @@ class RepairOrderPikerDataSource: YATableDataSource {
                 cell.titleLabel!.text = repairOrder!.repairType().stringValue
                 cell.contentLabel!.text = repairOrder!.troubleDescription()
             } else {
-                cell.titleLabel!.text = repairOrder!.poster().username
+                cell.titleLabel!.text = "报修人：\(repairOrder!.poster().username)"
+                cell.subTitleLabel!.text = "地点：\(repairOrder!.address())"
                 cell.contentLabel!.text = repairOrder!.troubleDescription()
             }
         }

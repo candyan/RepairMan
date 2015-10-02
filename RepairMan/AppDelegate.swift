@@ -25,7 +25,6 @@ extension AppDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.rootViewController = AppManager.sharedManager.rootNavigator
 
-//        AVUser.logOut()
         if AVUser.currentUser() == nil {
             AppManager.sharedManager.rootNavigator.setViewControllers([LaunchViewController()], animated: false)
             AppManager.sharedManager.rootNavigator.navigationBarHidden = true
@@ -70,8 +69,8 @@ extension AppDelegate {
     
     func setupLeanCloud() {
         ABRSRepairOrder.registerSubclass()
-        AVOSCloud.setApplicationId("mr6gny1ipywksc4nzx39rnlsuok86z2shwwcsytfea15w1ls",
-            clientKey: "vfmjw07qgbnv40v3x3t75hatrc7b4y0fjmy4ho8ry1mnno0k")
+        AVOSCloud.setApplicationId("XBvsVbmtLdgaWp4BX5lQx1b2",
+            clientKey: "mS6YsrOQswTDVbSh7r0gvgzI")
     }
 }
 

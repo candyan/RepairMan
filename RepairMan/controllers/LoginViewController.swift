@@ -59,6 +59,8 @@ extension LoginViewController {
         self.view.addSubview(passwordTextField!)
         passwordTextField!.delegate = self
         
+        passwordTextField!.secureTextEntry = true
+        
         passwordTextField!.mas_makeConstraints { (maker) -> Void in
             maker.width.equalTo()(self.nameTextField!)
             maker.centerX.equalTo()(self.nameTextField!)

@@ -6,13 +6,10 @@ target 'RepairMan' do
 
 pod 'PupaFoundation',              :git => 'https://github.com/candyan/PupaFoundation.git'
 pod 'YAUIKit',                     :git => 'https://github.com/candyan/YAUIKit.git', :tag => '2.5.10'
-pod 'YAPhotoBrowser',              :git => 'https://github.com/candyan/YAPhotoBrowser.git', :tag => '0.9.1'
 pod 'AVOSCloud',                   '~> 3.1.3.3'
 pod 'MBProgressHUD',               '~> 0.9.1'
-pod 'SDWebImage',                  '~> 3.7.3'
 pod 'ANKeyboardObserverManager',   '~> 1.0.0'
 pod 'ActionSheetPicker-3.0',       '~> 1.7.0'
-
 
 end
 

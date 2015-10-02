@@ -14,6 +14,7 @@ class RepairOrderCell: UITableViewCell {
     var titleLabel: UILabel?
     var subTitleLabel: UILabel?
     var contentLabel: UILabel?
+    var statusLabel: UILabel?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,7 +30,7 @@ class RepairOrderCell: UITableViewCell {
         let contentRect = contentText.boundingRectWithConstraints(limitedSize,
             attributes: [NSFontAttributeName: UIFont.helveticaFontOfSize(14)],
             limitedToNumberOfLines: 0)
-        return 15 + 60 + contentRect.height - UIFont.helveticaFontOfSize(14).lineHeight + 15
+        return 15 + 80 + contentRect.height - UIFont.helveticaFontOfSize(14).lineHeight + 15
     }
 }
 
@@ -45,9 +46,20 @@ extension RepairOrderCell {
         avatarImageView!.backgroundColor = UIColor(hex: 0x999999)
         avatarImageView!.mas_makeConstraints { (maker) -> Void in
             maker.top.equalTo()(self.contentView).offset()(15)
-            maker.width.and().height().mas_equalTo()(60)
+            maker.width.and().height().mas_equalTo()(80)
             maker.leading.equalTo()(self.contentView).offset()(10)
         }
+        
+        statusLabel = UILabel(frame: CGRectZero)
+        self.avatarImageView!.addSubview(statusLabel!)
+        
+        statusLabel!.mas_makeConstraints({ (maker) -> Void in
+            maker.leading.and().trailing().and().bottom().equalTo()(self.avatarImageView!)
+            maker.height.mas_equalTo()(22)
+        })
+        statusLabel!.font = UIFont.helveticaFontOfSize(11)
+        statusLabel!.textColor = UIColor.whiteColor()
+        statusLabel!.textAlignment = .Center
 
         titleLabel = UILabel(frame: CGRectZero)
         self.contentView.addSubview(titleLabel!)

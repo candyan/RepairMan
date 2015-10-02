@@ -34,10 +34,10 @@ extension ABRSProfileHeader {
         avatarImageView = UIImageView()
         self.addSubview(avatarImageView!)
         
-        self.avatarImageView?.layer.cornerRadius = 30
-        self.avatarImageView?.layer.masksToBounds = true
+        self.avatarImageView!.layer.cornerRadius = 30
+        self.avatarImageView!.layer.masksToBounds = true
         
-        self.avatarImageView?.backgroundColor = UIColor.grayColor()
+        self.avatarImageView!.backgroundColor = UIColor.grayColor()
         
         avatarImageView!.mas_makeConstraints({ (maker) -> Void in
             maker.width.equalTo()(60)
