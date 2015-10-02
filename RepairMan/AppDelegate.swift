@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  RepairMan
 //
-//  Created by liuyan on 8/16/15.
+//  Created by Cherry on 8/16/15.
 //  Copyright © 2015 ABRS. All rights reserved.
 //
 

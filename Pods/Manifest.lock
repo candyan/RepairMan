@@ -1,37 +1,12 @@
 PODS:
-  - ActionSheetPicker-3.0 (1.7.1)
-  - AFNetworking (2.6.0):
-    - AFNetworking/NSURLConnection (= 2.6.0)
-    - AFNetworking/NSURLSession (= 2.6.0)
-    - AFNetworking/Reachability (= 2.6.0)
-    - AFNetworking/Security (= 2.6.0)
-    - AFNetworking/Serialization (= 2.6.0)
-    - AFNetworking/UIKit (= 2.6.0)
-  - AFNetworking/NSURLConnection (2.6.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.0)
-  - AFNetworking/Security (2.6.0)
-  - AFNetworking/Serialization (2.6.0)
-  - AFNetworking/UIKit (2.6.0):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
+  - ActionSheetPicker-3.0 (1.7.2)
   - ANKeyboardObserverManager (1.0.0)
   - AVOSCloud (3.1.3.4)
-  - HappyDNS (0.2.1)
   - KVOController (1.0.3)
   - Masonry (0.6.2)
   - MBProgressHUD (0.9.1)
   - MRCircularProgressView (0.3.0)
   - PupaFoundation (1.1.6)
-  - Qiniu (7.0.12):
-    - AFNetworking (~> 2.0)
-    - HappyDNS (~> 0.1)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -48,7 +23,6 @@ DEPENDENCIES:
   - AVOSCloud (~> 3.1.3.3)
   - MBProgressHUD (~> 0.9.1)
   - PupaFoundation (from `https://github.com/candyan/PupaFoundation.git`)
-  - Qiniu (~> 7.0.12)
   - SDWebImage (~> 3.7.3)
   - YAPhotoBrowser (from `https://github.com/candyan/YAPhotoBrowser.git`, tag `0.9.1`)
   - YAUIKit (from `https://github.com/candyan/YAUIKit.git`, tag `2.5.10`)
@@ -75,17 +49,14 @@ CHECKOUT OPTIONS:
     :tag: 2.5.10
 
 SPEC CHECKSUMS:
-  ActionSheetPicker-3.0: 28a795c376f9d76850cb56eaf7dd5cf9a9088223
-  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  ActionSheetPicker-3.0: c5bdca19fd8b3d798f0c79892cbab6f11a8523ae
   ANKeyboardObserverManager: 7b308adb292e4a6ba4e104a3aa849a8220ad55b1
   AVOSCloud: d98195a7b15becc540cf30276480e9f510c4e1e4
-  HappyDNS: 8eb3c929ee6143eb56bfddfc9e6052ca9429699c
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MRCircularProgressView: ad3088a7e2908954ef3f1d4e9e322e2960ef0ebe
   PupaFoundation: 2c132c6f43485e7cecf3b64ea0725274e64041b1
-  Qiniu: 1fb5191b3bc1edb65b2da3d905b8281e15bd1d5c
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   YAPhotoBrowser: 346c4fecc4e928476acfdc38a9a4b800ee10f996
   YAUIKit: 8099ef67bfe00ffcb0cf2c892d3e7be55a5929b5

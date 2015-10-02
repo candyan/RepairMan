@@ -12,7 +12,6 @@ pod 'MBProgressHUD',               '~> 0.9.1'
 pod 'SDWebImage',                  '~> 3.7.3'
 pod 'ANKeyboardObserverManager',   '~> 1.0.0'
 pod 'ActionSheetPicker-3.0',       '~> 1.7.0'
-pod 'Qiniu',                       '~> 7.0.12'
 
 
 end

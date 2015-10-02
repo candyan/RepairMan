@@ -2,7 +2,7 @@
 //  ABRSRepairOrder.swift
 //  
 //
-//  Created by liuyan on 9/2/15.
+//  Created by Cherry on 9/2/15.
 //
 //
 
@@ -35,6 +35,7 @@ enum ABRSRepairStatus: Int {
 
         case .Repairing:
             return "维修中"
+            
 
         case .Finished:
             return "已完成"

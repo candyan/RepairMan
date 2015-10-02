@@ -2,7 +2,7 @@
 //  ItemPhotosEditorView.swift
 //  
 //
-//  Created by liuyan on 9/2/15.
+//  Created by Cherry on 9/2/15.
 //
 //
 

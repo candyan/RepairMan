@@ -2,7 +2,7 @@
 //  RepairEditEntryCell.swift
 //  
 //
-//  Created by liuyan on 9/1/15.
+//  Created by Cherry on 9/1/15.
 //
 //
 

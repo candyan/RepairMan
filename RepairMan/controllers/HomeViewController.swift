@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  
 //
-//  Created by liuyan on 9/1/15.
+//  Created by cherry on 9/1/15.
 //
 //
 
