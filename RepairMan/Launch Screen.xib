@@ -13,7 +13,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015年 ABRS. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439.5" width="441" height="21"/>
+                    <rect key="frame" x="20" y="440" width="441" height="20.5"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -22,53 +22,19 @@
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     </variation>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q84-b4-xzj">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SIA-LQ-D2B">
                     <rect key="frame" x="180" y="88.5" width="120" height="120"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uVw-3f-seM">
-                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FF8-W6-hx9">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CUq-w5-suD">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hT0-rr-Aca">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                                    <subviews>
-                                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SIA-LQ-D2B">
-                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                                            <animations/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <animations/>
-                                                </stackView>
-                                            </subviews>
-                                            <animations/>
-                                        </stackView>
-                                    </subviews>
-                                    <animations/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="120" id="bNr-Ze-KgC"/>
-                                        <constraint firstAttribute="width" constant="120" id="f7j-DI-5g7"/>
-                                    </constraints>
-                                </stackView>
-                            </subviews>
-                            <animations/>
-                        </stackView>
-                    </subviews>
                     <animations/>
-                </stackView>
+                </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.50588235294117645" green="0.83137254901960778" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Q84-b4-xzj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9ah-h8-KTm"/>
+                <constraint firstItem="SIA-LQ-D2B" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.618" id="9qF-CE-zfy"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="Q84-b4-xzj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.618" constant="0.33000000000000002" id="szg-qv-OnL"/>
+                <constraint firstItem="SIA-LQ-D2B" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gYd-9n-d8D"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
